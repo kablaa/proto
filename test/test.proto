@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto.test;
+
+option go_package = "proto.test";
+
+service TestService {
+    rpc GetMessage(GetMessageRequest) returns (GetMessageResponse) {}
+}
+
+message GetMessageRequest {
+    enum MessageType {
+        GREETINGS = 0;
+        INSULT = 1;
+    }
+   
+    MessageType message_type = 1;
+}
+
+message GetMessageResponse {
+    string response = 1;
+}
